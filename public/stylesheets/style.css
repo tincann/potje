@@ -1,13 +1,21 @@
 body {
-	padding: 50px;
-	font: 14px "Lato","Lucida Grande", Helvetica, Arial, sans-serif;
-	/* for login page */
-	background: #eee !important;	
+  padding: 50px;
+  font: 14px "Lato","Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  color: #f60;
+  padding-bottom: 1px;
 }
+a:hover {color:#e30; text-decoration: none; padding-bottom: 0; border-bottom:1px dotted #e30;}
+.logo {
+	max-height: 24px;
+	float:left;
+	margin-right:14px;
+	margin-top:-4px;
+}
+span.title {color:#ff6600;}
+
 
 /* for login page */
 .wrapper {	
