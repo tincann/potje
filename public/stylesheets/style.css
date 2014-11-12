@@ -1,8 +1,23 @@
 body {
   padding: 50px;
   font: 14px "Lato","Lucida Grande", Helvetica, Arial, sans-serif;
+  /* for login page */
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 a {
   color: #00B7FF;
 }
+
+/* for login page */
+.panel-default {	
+ opacity: 0.9;
+ margin-top:30px;
+}
+
+/* for login page */
+.form-group.last {
+ margin-bottom:0px;
