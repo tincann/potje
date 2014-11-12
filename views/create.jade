@@ -1,1 +1,42 @@
-potje aanmaken
+extends layout
+block content
+	div.container
+		h1 Potje Aanmaken
+		p Maak een nieuwe rekening aan in 3 simpele stappen
+		div.col-md-6
+			form.form
+				
+				h3 1. Accountgegevens
+				div.form-group
+					label(for="accountName") Accountnaam
+					input(type="text",name="accountName",class="form-control",required="required") 
+					
+				hr
+				h3 2. Kies rekeninghouders
+				p Nodig je vrienden uit (vul hun IBAN rekeningnummers). Deze mensen krijgen een notificatie-emailtje en kunnen dan de uitnodiging accepteren.
+				//of met een rekeningnummer, of met een emailadres. Afhankelijk of we dit in de ING app kunnen verwerken
+				div.form-group
+					div.row
+						div.col-md-10
+							input(type="text" placeholder="Typ een rekeningnummer",class="form-control",required="required")
+						div.col-md-2
+							a(class="btn btn-default") 
+								i.fa.fa-fw.fa-plus
+								| Toevoegen
+				
+				p Toevoegde rekeninghouders:
+				ul
+					li Henk
+					li Bob
+					li Dirk
+
+				hr
+				h3 3. Kies inlegbedrag
+				p Lijst van toegevoegde mensen en inputfield om nieuwe persoon toe te voegen
+				p Eerste inlegbedrag bepalen (in euro’s)
+				
+				div.form-group
+					input(type="number", name="initialAmount", min="0", max="1000",class="form-control",required="required")
+
+
+				input(type="submit", value="Aanmaken")
