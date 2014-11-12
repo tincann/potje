@@ -10,7 +10,7 @@ var connection = mysql.createConnection({
 });
 
 
-function UserRepository(){
+function Potje_has_accountsRepository(){
 
 }
 
@@ -18,7 +18,7 @@ function UserRepository(){
 UserRepository.prototype.getUser = function(userId, callback) {
   connection.connect();
 
-  connection.query('SELECT * FROM users WHERE id = ?',[userId],function(err,result,fields) {
+  connection.query('SELECT * FROM potje_has_accounts WHERE id = ?',[account_id],function(err,result,fields) {
     console.log(err);
     callback(result);                   
   });
@@ -26,9 +26,9 @@ UserRepository.prototype.getUser = function(userId, callback) {
   connection.end();
 };
 
-module.exports = new UserRepository();
+module.exports = new Potje_has_accountsRepository();
 
-var a = new UserRepository();
+var a = new Potje_has_accountsRepository();
 
 a.getUser(1, function(user) {
   console.log(user);
