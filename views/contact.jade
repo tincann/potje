@@ -1,5 +1,44 @@
 extends layout
 block content
-	div.container
-		h1 Contact
-		p Oka werkt hieraan
+    div.container
+        h1.page-header Contact
+            small  Stuur ons een bericht
+        div.row
+        div.col-md-8
+        div.row
+            div.col-md-8
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2435.28729626231!2d4.920498999999988!3d52.383342000000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c609abb3be496b%3A0x1a140c53c426f7c7!2sDe+Kromhouthal!5e0!3m2!1sen!2snl!4v1415826858467" width="700" height="300" frameborder="0" style="border:0"></iframe>
+            h3 Contact details
+            h4 De Kromhouthal
+            p Gedempt Hamerkanaal 231
+            p 1021 KP Amsterdam
+            p Telefoon: 020 636 5250
+            p Email: <a href="mailto:info@xyz.com">info@xyz.com</a>
+
+        div(class="col-md-7 col-md-offset-2")
+            form(name="sentMessage" id="contactForm")
+                div(class="control-group form-group")
+                div.controls
+                    label Naam: *
+                    input(type="text", class="form-control", id="name", required data-validation-required-message="Vul aub uw volledig naam in.")
+                    p.help-block
+                div(class= "control-group form-group")
+                    div.controls
+                    label Telefoon nummer: 
+                    input(type="tel", class="form-control", id="phone", required data-validation-required-message="Vul aub uw telefoon nummer in.")
+                div(class="control-group form-group")
+                    div.controls
+                    label Email adres: *
+                    input(type="email", class="form-control", id="email", required data-validation-required-message="Vul aub uw email adres in.")
+                div(class= "control-group form-group")
+                    div.controls
+                    label Rekening nummer: 
+                    input(type="password", class="form-control", id="rek_num", required data-validation-required-message="Vul aub uw rekening nummer in.")
+                div(class="control-group form-group")
+                    div.controls
+                    label Bericht: *
+                    textarea(rows="10", cols="100", class="form-control", id="message", required data-validation-required-message="Schrijf hier uw vraag.", maxlength="999", style="resize:none")
+                    div.success
+                p * Geeft aan dat u verplicht ben om de velden in te vullen. 
+                div
+                    button(type="submit" class="btn btn-primary center-block") Stuur bericht
