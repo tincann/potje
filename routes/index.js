@@ -10,24 +10,4 @@ router.get('/index', function(req, res) {
   res.render('index', { title: 'index' });
 });
 
-/* GET about page */
-router.get('/about', function(req, res) {
-  res.render('about', { title: 'about' });
-});
-
-/* GET contact page */
-router.get('/contact', function(req, res) {
-  res.render('contact', { title: 'contact' });
-});
-
-/* GET user page */
-router.get('/user', function(req, res) {
-  res.render('user', { title: 'user' });
-});
-
-/* GET login page */
-router.get('/login', function(req, res) {
-  res.render('login', { title: 'login' });
-});
-
 module.exports = router;
