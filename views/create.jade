@@ -3,33 +3,18 @@ block content
 	div.container
 		h1 Potje Aanmaken
 		p Maak een nieuwe rekening aan in 3 simpele stappen
+		
 		div.col-md-6
 			form(class="form",action="create/potje",method="post")
 				
-				h3 1. Accountgegevens
+				h3 1. Basisgegevens
 				div.form-group
-					label(for="accountName") Accountnaam
+					label(for="accountName") Naam van Potje 
 					input(type="text",name="accountName",class="form-control",required="required") 
 					
-				hr
-				h3 2. Kies rekeninghouders
-				p Nodig je vrienden uit (vul hun IBAN rekeningnummers). Deze mensen krijgen een notificatie-emailtje en kunnen dan de uitnodiging accepteren.
-				//of met een rekeningnummer, of met een emailadres. Afhankelijk of we dit in de ING app kunnen verwerken
-				div.form-group
-					div.row
-						div.col-md-10
-							input(type="text" placeholder="Typ een rekeningnummer",class="form-control",required="required")
-						div.col-md-2
-							a(class="btn btn-default") 
-								i.fa.fa-fw.fa-plus
-								| Toevoegen
 				
-				p Toevoegde rekeninghouders:
-				ul
-					li Henk
-					li Bob
-					li Dirk
-
+			
+			
 				hr
 				h3 3. Kies inlegbedrag
 				p Lijst van toegevoegde mensen en inputfield om nieuwe persoon toe te voegen
@@ -38,5 +23,25 @@ block content
 				div.form-group
 					input(type="number", name="initialAmount", min="0", max="1000",class="form-control",required="required")
 
+				hr
+				input(type="submit", value="Aanmaken",class="btn btn-lg btn-success")
 
-				input(type="submit", value="Aanmaken")
+		div.col-md-6
+			h3 2. Kies rekeninghouders
+			p 
+				| Nodig je vrienden uit (vul hun IBAN rekeningnummers). Deze mensen krijgen een notificatie-emailtje en kunnen dan de uitnodiging accepteren. 
+				strong Je kan maximaal 
+
+
+			div(ng-controller="PotjeController")
+				form(ng-submit="addTodo()")
+					div.row
+						div.col-md-10
+							input(type="text",ng-model="todoText",size="30",placeholder="Voeg meer rekeninghouders toe",class="form-control")
+						div.col-md-2
+							input(class="btn-primary form-control",type="submit",value="add")
+				br
+				ul
+						li(ng-repeat="todo in People")
+							{{todo.text}}
+							
