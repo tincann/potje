@@ -1,12 +1,20 @@
 extends layout
 block content
 	div.container
-		div.wrapper 
-		    form(class="form-signin")
-				<h2 class="form-signin-heading">Please login</h2>
-				<input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" />
-				<input type="password" class="form-control" name="password" placeholder="Password" required=""/>      
-				<label class="checkbox">
-					<input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
-				</label>
-				<button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>   
+		div(class="col-md-4 col-md-offset-4")
+			form(class="form-signin")
+				h2.form-signin-heading Please login
+				div.form-group
+					input(type="text", class="form-control", name="username", placeholder="Email Address" required="" autofocus="")
+				div.form-group
+					input(type="password",class="form-control", name="password", placeholder="Password", required="")
+				div.form-group
+					label.checkbox 
+						input(type="checkbox",value="remember-me",id="rememberMe", name="rememberMe") 
+						| Remember me
+				
+				div.form-group
+					button(class="btn btn-lg btn-primary btn-block", type="submit") Login
+
+				p
+					a(href="#",class="btn btn-warning pull-right") Inlogproblemen?

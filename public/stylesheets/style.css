@@ -3,11 +3,11 @@ body {
   font: 14px "Lato","Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
+p a {
   color: #f60;
-  padding-bottom: 1px;
+  /*padding-bottom: 1px;*/
 }
-a:hover {color:#e30; text-decoration: none; padding-bottom: 0; border-bottom:1px dotted #e30;}
+a:hover {color:#e30; text-decoration: none;/* padding-bottom: 0;*/ border-bottom:1px dotted #e30;}
 .logo {
 	max-height: 24px;
 	float:left;
@@ -18,7 +18,7 @@ span.title {color:#ff6600;}
 
 
 /* for login page */
-.wrapper {	
+/*.wrapper {	
 	margin-top: 80px;
   margin-bottom: 80px;
 }
@@ -66,5 +66,5 @@ span.title {color:#ff6600;}
 	  border-top-left-radius: 0;
 	  border-top-right-radius: 0;
 	}
-}
+}*/
 /* end login page */
