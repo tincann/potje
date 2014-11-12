@@ -2,14 +2,23 @@
 angular.module('potjeApp', [])
   .controller('PotjeController', ['$scope', function($scope) {
     $scope.People = [
-      {text:'Henk de Vries', status:false},
-      {text:'Dirk Thierens', status:false}];
- 
-    $scope.addTodo = function() {
-      $scope.People.push({text:$scope.todoText, accountNumber:false});
-      $scope.todoText = '';
+      {id:"0",text:'Henk de Vries', status:false},
+      {id:"1",text:'Dirk Thierens', status:false}
+  	];
+ 	
+ 	$scope.nameText ='';
+
+    $scope.addPerson = function() {
+      if($scope.nameText!='') {
+      	$scope.People.push({id:$scope.People.length+1,text:$scope.nameText, accountNumber:false});
+      	$scope.nameText = '';
+      	$('#addPersonButton').removeClass('btn-primary');
+      } 
+      // else {
+      	// toastr.error("Je moet een naam invullen voordat je een persoon kan toevoegen");
+      // }
     };
- 
+
     $scope.remaining = function() {
       var count = 0;
       angular.forEach($scope.People, function(todo) {

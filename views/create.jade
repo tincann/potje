@@ -1,6 +1,6 @@
 extends layout
 block content
-	div.container
+	div(class="container",ng-controller="PotjeController")
 		h1 Potje Aanmaken
 		p Maak een nieuwe rekening aan in 3 simpele stappen
 		
@@ -12,9 +12,16 @@ block content
 					label(for="accountName") Naam van Potje 
 					input(type="text",name="accountName",class="form-control",required="required") 
 					
-				
-			
-			
+				h3 2. Kies rekeninghouders
+				p Nodig je vrienden uit (vul hun IBAN rekeningnummers). Deze mensen krijgen een notificatie-emailtje en kunnen dan de uitnodiging accepteren. 
+				strong Je kan minimaal 2 en maximaal 10 rekeninghouders op een potje hebben
+				hr
+				p Toekomstige rekeninghouders
+				ul
+					li(ng-repeat="person in People")
+						{{person.text}}
+						input(type="hidden", name="accountHolders[{{person.id}}]", value="{{person.text}}")
+
 				hr
 				h3 3. Kies inlegbedrag
 				p Lijst van toegevoegde mensen en inputfield om nieuwe persoon toe te voegen
@@ -27,21 +34,13 @@ block content
 				input(type="submit", value="Aanmaken",class="btn btn-lg btn-success")
 
 		div.col-md-6
-			h3 2. Kies rekeninghouders
-			p 
-				| Nodig je vrienden uit (vul hun IBAN rekeningnummers). Deze mensen krijgen een notificatie-emailtje en kunnen dan de uitnodiging accepteren. 
-				strong Je kan maximaal 
-
-
-			div(ng-controller="PotjeController")
-				form(ng-submit="addTodo()")
-					div.row
-						div.col-md-10
-							input(type="text",ng-model="todoText",size="30",placeholder="Voeg meer rekeninghouders toe",class="form-control")
-						div.col-md-2
-							input(class="btn-primary form-control",type="submit",value="add")
-				br
-				ul
-						li(ng-repeat="todo in People")
-							{{todo.text}}
-							
+			
+			
+			form(ng-submit="addPerson()")
+				div.row
+					div.col-md-10
+						input(type="text",id="addPersonField",ng-model="nameText",size="30",placeholder="Voeg meer rekeninghouders toe",class="form-control",value="")
+					div.col-md-2
+						input(class="form-control",id="addPersonButton",type="submit",value="add")
+			br
+			
