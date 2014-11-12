@@ -33,7 +33,6 @@ app.use('/about', about);
 app.use('/contact', contact);
 app.use('/login', login);
 
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
@@ -54,7 +53,6 @@ if (app.get('env') === 'development') {
         });
     });
 }
-
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
@@ -64,6 +62,5 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
-
 
 module.exports = app;
