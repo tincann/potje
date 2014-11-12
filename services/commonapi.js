@@ -20,6 +20,7 @@ CommonApi.prototype.example = function(callback)
 	get(url_seg,callback);
 }
 
+
 var get = function(url_seg,callback)
 {
 	var options = {

@@ -1,5 +1,5 @@
 doctype html
-html
+html(ng-app="potjeApp")
 	head
 		block head
 			block title
@@ -13,7 +13,11 @@ html
 			| <style>
 			| body { padding-top: 60px; }
 			| </style>
-			script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
+			
+			script(src='/scripts/jquery.min.js')
+			script(src='/scripts/angular.min.js')
+
+			script(src='/scripts/potje-angular.js')
 	body
 		include header
 
