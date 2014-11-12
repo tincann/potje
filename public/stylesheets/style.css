@@ -3,11 +3,11 @@ body {
   font: 14px "Lato","Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-p a {
+#content p a, #footer p a {
   color: #f60;
   /*padding-bottom: 1px;*/
 }
-a:hover {color:#e30; text-decoration: none;/* padding-bottom: 0;*/ border-bottom:1px dotted #e30;}
+#content a:hover, #footer a:hover {color:#e30; text-decoration: none;/* padding-bottom: 0;*/ border-bottom:1px dotted #e30;}
 .logo {
 	max-height: 24px;
 	float:left;
