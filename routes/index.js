@@ -5,7 +5,7 @@ var router = express.Router();
 router.get('/', function(req, res) {
   res.render('index', { title: 'Express' });
 });
-/* GET about page */
+/* GET index page */
 router.get('/index', function(req, res) {
   res.render('index', { title: 'index' });
 });
@@ -27,7 +27,7 @@ router.get('/user', function(req, res) {
 
 /* GET login page */
 router.get('/login', function(req, res) {
-  res.render('login', { title: 'Login' });
+  res.render('login', { title: 'login' });
 });
 
 module.exports = router;

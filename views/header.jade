@@ -11,11 +11,11 @@ div.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
 				sup &nbsp;ALFA
 		div.collapse.navbar-collapse
 			ul.nav.navbar-nav
-				li.active
+				li(class=(title === 'index' ? 'active' : ''))
 					a(href="index") Home	 
-				li
+				li(class=(title === 'about' ? 'active' : ''))
 					a(href="about") Hoe werkt het?
-				li
+				li(class=(title === 'login' ? 'active' : ''))
 					a(href="login") Inloggen
-				li
+				li(class=(title === 'contact' ? 'active' : ''))
 					a(href="contact") Contact
