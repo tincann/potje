@@ -6,9 +6,12 @@ function PotjeRepository(){
 
 
 PotjeRepository.prototype.getPotje = function(potjeId, callback) {
-  connection.query('SELECT * FROM potjes WHERE id = ?', [potjeId], function(error, result){
-    console.log(error);
-    callback(result);
+  connection.query('SELECT * FROM potjes WHERE id = ?', [potjeId], function(error, potje){
+    potje = potje[0];
+    connection.query('SELECT * FROM potje_has_accounts as k, accounts as a WHERE potje_id = ? AND k.account_id = a.id', [potjeId], function(error, members){
+      potje.members = members;
+      callback(potje);
+    });
   });
 };
 
