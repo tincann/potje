@@ -2,7 +2,7 @@
 angular.module('potjeApp', [])
   .controller('PotjeController', ['$scope', function($scope) {
     $scope.People = [
-      {id:"0",text:'Henk de Vries', status:false},
+      // {id:"0",text:'Henk de Vries', status:false},
       // {id:"1",text:'Dirk Thierens', status:false}
   	];
  	
