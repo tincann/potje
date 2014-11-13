@@ -15,6 +15,7 @@ body {
 	margin-top:-4px;
 }
 span.title {color:#ff6600;}
+p.intro {font-size: 13pt;}
 div.about_text {font-size: 14pt;}
 h3 {text-align: center; font-size: 14pt;}
 p.int {font-size: 25pt;}
