@@ -34,29 +34,31 @@ PotjeRepository.prototype.getPotjes = function(account_id, callback) {
 };
 
 PotjeRepository.prototype.createPotje = function(potje_data, members, callback) {
-  
-  console.log(members);
-  connection.query('INSERT INTO potjes SET ?', potje_data, function(errors,r1,nogiets){
+  console.log('createPotje::');
+  console.log('createPotje::data', potje_data);
+  console.log('createPotje::members', members);
+
+  var participants = members.map(function(i){ return i});
+
+  connection.query('INSERT INTO potjes SET ?', potje_data, function(errors,r1){
+    console.log('createPotje::members', participants);
     if(errors){
-      callback(errors);
+      callback('error', errors);
       return;
     }
 
     var pot_id = r1.insertId;
 
-    console.log(pot_id);
-    console.log(members);
+    console.log(participants);
 
     var inserts = [];
-
-    console.log(members.length);
  
-    for (var i = 0; i < members.length; i++)
+    for (var i = 0; i < participants.length; i++)
     {
-      var x = [pot_id, members[i].account_id];
+      var x = [pot_id, participants[i].account_id];
       inserts.push(x);
     }
-    connection.query('INSERT INTO `potje_has_accounts` (potje_id, account_id) VALUES ?', [inserts], function(errors,r2,nogiets){
+    connection.query('INSERT INTO `potje_has_accounts` (potje_id, account_id) VALUES ?', [inserts], function(errors,r2){
       callback(null, r2);
     });
   });

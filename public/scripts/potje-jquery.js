@@ -85,13 +85,21 @@ $(document).ready(function() {
 	    debugger;
 
 
-	    $.post('/create/potje', JSON.stringify(potje))
+	    $.post('/create/potje', potje, 'json')
 	    .fail(console.log.bind(console))
 	    .done(function(){
 	    	debugger;
 	    });
 
+	    $.ajax({
+	    	url: '/create/potje',
+	    	contentType: 'application/json',
+	    	data: JSON.stringify(potje),
+	    	method: 'POST',
 
+	    }).fail(function(){
+	    	debugger;
+	    });
 
 
 	    // $('#formCreatePotje').submit(function( event ) {

@@ -27,12 +27,11 @@ router.get('/get_users',function(req,res){
 })
 
 router.post('/potje',function(req, res){
-	var requestObject = JSON.parse(req.body);
-	console.log(requestObject);
-	
-	potjeRepository.createPotje({name : x.accountName, amount : x.initialAmount}, x.participants, function(errors, ding) {
+	var x = req.body;
+
+	potjeRepository.createPotje({name : x.accountName, amount : x.initialAmount }, x.participants, function(errors, ding) {
 		if(errors){
-			console.log(errors);
+			console.log('error', errors);
 		}
 		res.redirect('/dashboard');
 	});
