@@ -8,18 +8,22 @@ html(ng-app="potjeApp")
 				meta(name='description', content='Potje: online betalen voor groepen')
 				meta(name='keywords', content='potje,online,betalen,groepsbetalen,wiebetaaltwat,splitwise,geld,ing,bank,bankieren,euro')
 			
+			//CSS
+
+			//Libs			
 			link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
 			link(rel='stylesheet', href='/stylesheets/toastr.min.css')
 			link(rel='stylesheet', href='/font-awesome-4.2.0/css/font-awesome.css')
-			link(rel='stylesheet', href='/stylesheets/style.css')
-			
-			| <style>
-			| body { padding-top: 60px; }
-			| </style>
-			
-			script(src='/scripts/jquery.min.js')
-			script(src='/scripts/angular.min.js')
 
+			//Eigen werk
+			link(rel='stylesheet', href='/stylesheets/style.css')
+
+			//Javascript
+
+			//Libs
+			script(src='/scripts/jquery.min.js')
+			//Eigen werk
+			script(src='/scripts/angular.min.js')
 			script(src='/scripts/potje-angular.js')
 	body
 
