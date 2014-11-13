@@ -1,4 +1,5 @@
 var express = require('express');
+var potjeRepository = require('../repositories/potjeRepository');
 var router = express.Router();
 
 /* GET home page. */
@@ -7,13 +8,11 @@ router.get('/', function(req, res) {
 });
 
 router.post('/potje',function(req, res){
-
 	var x = req.body;
 
-	console.log(x);
-
-	//res.write(JSON.stringify(x));
-	res.render('create', {title: "Potje aanmaken"});
+	potjeRepository.createPotje({name : x.accountName, amount : x.initialAmount}, x.accountHolders, function() {
+		res.redirect('create');
+	});
 });
 
 module.exports = router;
