@@ -1,13 +1,12 @@
 extends layout
 block content
 	div.container
-		div.col-md-4
-			h1.page-header Opties
-			a(href="/create/",class="btn btn-primary") 
+		div.col-md-12
+			h1.page-header Overzicht van potjes
+			a(href="/create/",class="btn btn-primary pull-right") 
 				i.fa.fa-fw.fa-plus
 				|  Nieuwe pot maken..
-		div.col-md-8
-			h1.page-header Overzicht van potjes
+		div.col-md-12
 			table.table
 				thead
 					tr
@@ -17,6 +16,6 @@ block content
 				each potje in potjes
 					tr
 						td
-							a(href="/dashboard/"+potje.id)
+							a(href="/dashboard/view/"+potje.id)
 								= potje.name
 						td= potje.amount
