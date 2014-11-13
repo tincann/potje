@@ -12,9 +12,17 @@ AccountRepository.prototype.getAccount = function(iban, callback) {
   connection.query('SELECT * FROM accounts WHERE iban = ?',[iban],function(err,result,fields) {
     console.log(err);
     callback(result);
+  	connection.end();
   });
+};
 
-  connection.end();
+AccountRepository.prototype.getAllAccounts = function(callback){
+	connection.connect();
+
+	connection.query("SELECT * FROM accounts",function(errors,res,fields){
+		connection.end();
+		callback(res);
+	});
 };
 
 module.exports = new AccountRepository();

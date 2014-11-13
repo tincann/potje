@@ -11,10 +11,20 @@ $(document).ready(function() {
 	});
 
 	// $('.autocomplete').autocomplete('disable');
-	var adresboek = [
+	var adresboek = [];
+
+	/*adresboek = [
 	   { value: 'Henk', data: '0' },
 	   { value: 'Bob', data: '1' }
 	];
+	*/
+
+	$.getJSON('create/get_users').done(function(data){
+		$.each(data,function(i,v){
+			adresboek.push({value:v.name,data:v.id});
+		});
+		console.log(adresboek);
+	})
 
 
 	$('.autocomplete').autocomplete({
