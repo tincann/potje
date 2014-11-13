@@ -20,22 +20,11 @@ router.get('/', function(req, res) {
 });
 
 router.get('/get_users',function(req,res){
-	//accountRepository.getAllAccounts(function(data){
-
-		//console.log(data);
-
-		var data = [{
-			name:'Henk',
-			value:0
-		},
-		{
-			name:'Oka',
-			value:1
-		}];
+	accountRepository.getAllAccounts(function(data){
 
 		res.write(JSON.stringify(data));
 		res.end();
-	//});
+	});
 })
 
 router.post('/potje',function(req, res){
