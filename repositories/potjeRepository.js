@@ -20,11 +20,7 @@ PotjeRepository.prototype.getPotjes = function(potje_id, callback) {
 PotjeRepository.prototype.createPotje = function(potje_data, members, callback) {
   connection.connect();
 
-  var insert = {
-    name : potje_data.name
-  }
-
-  connection.query('INSERT INTO potjes SET ?', insert, function(errors,r1,nogiets){
+  connection.query('INSERT INTO potjes SET ?', potje_data, function(errors,r1,nogiets){
     pot_id = r1.insertId;
 
     console.log(pot_id);
