@@ -40,7 +40,7 @@ block content
 				input(type="number", name="inlegBedrag",  ng-model="inlegBedrag", min="0", max="1000",class="form-control",required="required")
 
 
-			form(class="form",id="formCreatePotje",action="create/potje",method="post")
+			form(class="form",id="formCreatePotje",action="/create/potje",method="post")
 			
 				input(type="hidden", name="inlegBedrag", id="inlegBedrag", value="{{inlegBedrag}}")
 				input(type="hidden", name="naamVanPotje", id="naamVanPotje", value="{{naamVanPotje}}")

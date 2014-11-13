@@ -30,7 +30,7 @@ router.get('/get_users',function(req,res){
 router.post('/potje',function(req, res){
 	var x = req.body;
 
-	potjeRepository.createPotje({name : x.accountName, amount : x.initialAmount}, x.accountHolders, function() {
+	potjeRepository.createPotje({name : x.accountName, amount : x.initialAmount}, [], function() {
 		res.render('create');
 	});
 });

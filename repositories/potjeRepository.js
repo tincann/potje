@@ -15,8 +15,8 @@ PotjeRepository.prototype.getPotjes = function(account_id, callback) {
        ors += " OR id = " + results[i].potje_id;
 
     connection.query(ors, function(err,result,fields) {
-        callback(result);
         connection.end();
+        callback(result);
     });
   });
 };
@@ -33,7 +33,7 @@ PotjeRepository.prototype.createPotje = function(potje_data, members, callback) 
     var inserts = [];
 
     console.log(members.length);
-
+ 
     for (var i = 0; i < members.length; i++)
     {
       var x = [pot_id, members[i].account_id];
