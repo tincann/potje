@@ -35,3 +35,24 @@ div.autocomplete-suggestion.autocomplete-selected {
      cursor:pointer;
 }
 
+li.nav-user {
+    padding:0 10px;
+    line-height: 49px;
+    color: #999;
+}
+
+li.nav-dropdown.dropdown-toggle {
+    color: #9c9c9c;
+    line-height: 50px;
+    padding: 0 20px;
+}
+
+li.nav-dropdown.dropdown-toggle:hover {
+    color:#fff;
+    cursor:pointer;
+}
+
+ul.dropdown-menu {
+    left: 40%;
+}
+

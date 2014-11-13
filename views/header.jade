@@ -10,7 +10,7 @@ div.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
 				span(class="title") Potje
 				sup &nbsp;ALFA
 		div.collapse.navbar-collapse
-			ul.nav.navbar-nav
+			ul(class="nav navbar-nav")
 				li(class=(title === 'index' ? 'active' : ''))
 					a(href="/") Home	 
 				
@@ -19,16 +19,11 @@ div.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
 				li(class=(title === 'Mijn Potjes' ? 'active' : ''))
 					a(href="/dashboard") Mijn Potjes
 
-				li.nav-user
-					a(href="#",title="Klik hier om uit te loggen..")
-						i.fa.fa-fw.fa-ellipsis-v 
-						|  Ingelogd als 
-						strong Dirk Thierens
-						b.caret
-			div.dropdown
+				//-div.dropdown
 				//- <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
 				li(class="nav-dropdown dropdown-toggle",type="button",id="dropdownMenu1", data-toggle="dropdown", aria-expanded="true")
-					| Documentatie
+					i.fa.fa-info.fa-fw
+					| Help
 					span.caret
 				
 				ul(class="dropdown-menu",role="menu",aria-labelledby="dropdownMenu1")
@@ -45,3 +40,9 @@ div.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
 					//- 	a(role="menuitem",tabindex="-1",href="#") Something else here
 					//- li(role="presentation")
 					//- 	a(role="menuitem",tabindex="-1",href="#") Separated link
+				li.nav-user.nav-right
+					a(href="#",title="Klik hier om uit te loggen..")
+						i.fa.fa-fw.fa-ellipsis-v 
+						|  Ingelogd als 
+						strong Dirk Thierens
+						//- b.caret
