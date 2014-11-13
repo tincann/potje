@@ -26,4 +26,22 @@ PotjeMembersRepository.prototype.removeUser = function(potjeId, userId, callback
   connection.end();
 };
 
+PotjeMembersRepository.prototype.getMembersForPotje = function(potje_id,callback){
+  connection.connect();
+
+  connection.query("SELECT * FROM accounts a LEFT JOIN potje_has_members p ON a.id = p.account_id WHERE p.potje_id = "+potje_id,function(errors,res,fields){
+    callback(res);
+    connection.end();
+  }
+}
+
+PotjeMembersRepository.prototype.getPotjesForMember = function(account_id,callback){
+  connection.connect();
+
+  connection.query("SELECT * FROM potjes p1 LEFT JOIN potje_has_members p2 ON p1.id = p.potje_id WHERE p2.account_id = "+account_id,function(errors,res,fields){
+    callback(res);
+    connection.end();
+  }
+}
+
 module.exports = new PotjeMembersRepository();
