@@ -1,7 +1,22 @@
 extends layout
 block content
 	div.container
-		h1.page-header Dashboard
-			ul
+		div.col-md-4
+			h1.page-header Opties
+			a(href="/create/",class="btn btn-primary") 
+				i.fa.fa-fw.fa-plus
+				|  Nieuwe pot maken..
+		div.col-md-8
+			h1.page-header Overzicht van potjes
+			table.table
+				thead
+					tr
+						th Naam
+						th Hoeveelheid rekeninghouders
+				tbody
 				each potje in potjes
-					li= potje.name + ' - ' + potje.amount
+					tr
+						td
+							a(href="/dashboard/"+potje.id)
+								= potje.name
+						td= potje.amount

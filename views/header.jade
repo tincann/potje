@@ -13,11 +13,14 @@ div.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
 			ul.nav.navbar-nav
 				li(class=(title === 'index' ? 'active' : ''))
 					a(href="/") Home	 
-				li(class=(title === 'about' ? 'active' : ''))
+				li(class=(title === 'About' ? 'active' : ''))
 					a(href="/about") Hoe werkt het?
-				li(class=(title === 'create' ? 'active' : ''))
-					a(href="/create") Rekening aanmaken
+				li(class=(title === 'Potje aanmaken' ? 'active' : ''))
+					a(href="/create") Potje aanmaken
+				li(class=(title === 'Mijn Potjes' ? 'active' : ''))
+					a(href="/dashboard") Mijn Potjes
 				li(class=(title === 'contact' ? 'active' : ''))
 					a(href="/contact") Contact
+
 ///				li(class=(title === 'login' ? 'active' : ''))
 ///					a(href="/login") Inloggen
