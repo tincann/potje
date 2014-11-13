@@ -9,7 +9,7 @@ router.get('/', function(req, res) {
   
   var meId = 1;
   potjeRepository.getPotjes(meId, function(potjes) {
-  	res.render('dashboard', { potjes: potjes });
+  	res.render('dashboard', { title:'dashboard',potjes: potjes });
   });
 });
 
