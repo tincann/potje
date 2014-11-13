@@ -34,6 +34,8 @@ PotjeRepository.prototype.getPotjes = function(account_id, callback) {
 };
 
 PotjeRepository.prototype.createPotje = function(potje_data, members, callback) {
+  
+  console.log(members);
   connection.query('INSERT INTO potjes SET ?', potje_data, function(errors,r1,nogiets){
     if(errors){
       callback(errors);

@@ -14,7 +14,8 @@ router.get('/', function(req, res) {
 });
 
 router.get('/view/:id(\\d+)/', function (req, res) {
-	console.log('yes', req.params.id);
+	console.log('yo', req.params);
+
 	potjeRepository.getPotje(req.params.id, function(potje){
 		console.log(potje);
 		res.render('dashboard-potje', { potje: potje });

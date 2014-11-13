@@ -40,7 +40,7 @@ $(document).ready(function() {
 	// });
 
 	$("input.submitNewPotjeButton").click(function(e){
-		// e.preventDefault();
+		e.preventDefault();
 		console.log('validation');
 		// e.preventDefault();
 	    console.log("nieuw potje aanmaken..");
@@ -82,15 +82,17 @@ $(document).ready(function() {
 	    	return;
 	    }
 
-	    //posten!	
-	    for (var i = 0; i < potje.participants.length; i++) {
-	    	
-		$('#formCreatePotje').append("<input type='hidden' name='participantData["+i+"]' value='{name:"+potje.participants[i].name+",insertId:"+potje.participants[i].id+"}'>");
-		console.log(potje)
-	    };
+	    debugger;
 
 
-		console.log("submit uitvoeren ")
+	    $.post('/create/potje', JSON.stringify(potje))
+	    .fail(console.log.bind(console))
+	    .done(function(){
+	    	debugger;
+	    });
+
+
+
 
 	    // $('#formCreatePotje').submit(function( event ) {
 		//   console.log("submit uitgevoerd!" + event)
