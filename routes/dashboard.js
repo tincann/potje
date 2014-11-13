@@ -13,9 +13,8 @@ router.get('/', function(req, res) {
   });
 });
 
-router.get('/:id(\\d+)/', function (req, res) {
+router.get('/view/:id(\\d+)/', function (req, res) {
 	console.log('yes', req.params.id);
-	var potje = { name: "hey"};
 	potjeRepository.getPotje(req.params.id, function(potje){
 		console.log(potje);
 		res.render('dashboard-potje', { potje: potje });
