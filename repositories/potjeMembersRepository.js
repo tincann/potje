@@ -1,10 +1,10 @@
 var connection = require('../mysql');
 
-function PotjeRepository(){
+function PotjeMembersRepository(){
 
 }
 
-PotjeRepository.prototype.addUser = function(potjeId, userId, callback) {
+PotjeMembersRepository.prototype.addUser = function(potjeId, userId, callback) {
   connection.connect();
 
   connection.query('INSERT INTO potje_has_accounts SET potjeId = ?, account_id = ?',[potjeId, userId],function(err,result,fields) {
@@ -15,7 +15,7 @@ PotjeRepository.prototype.addUser = function(potjeId, userId, callback) {
   connection.end();
 };
 
-PotjeRepository.prototype.removeUser = function(potjeId, userId, callback) {
+PotjeMembersRepository.prototype.removeUser = function(potjeId, userId, callback) {
   connection.connect();
 
   connection.query('DELETE FROM potje_has_accounts WHERE potjeId = ? AND account_id = ?',[potjeId, userId],function(err,result,fields) {
@@ -26,4 +26,4 @@ PotjeRepository.prototype.removeUser = function(potjeId, userId, callback) {
   connection.end();
 };
 
-module.exports = new PotjeRepository();
+module.exports = new PotjeMembersRepository();
