@@ -5,16 +5,21 @@ function PotjeRepository(){
 };
 
 
-PotjeRepository.prototype.getPotjes = function(potje_id, callback) {
+PotjeRepository.prototype.getPotjes = function(account_id, callback) {
   connection.connect();
 
-  connection.query('SELECT * FROM',function(err,result,fields) {
-    console.log(err);
-    connection.end();
-    callback(result);
+  connection.query('SELECT * FROM potje_has_accounts WHERE account_id = ?', account_id, function(err,results,fields) {  
+    var ors = "SELECT * FROM potjes WHERE id = -1";
+
+    for (var i = 0; i < results.length; i++)
+       ors += " OR id = " + results[i].potje_id;
+
+    connection.query(ors, function(err,result,fields) {
+        callback(result);
+        connection.end();
+    });
   });
 };
-
 
 PotjeRepository.prototype.createPotje = function(potje_data, members, callback) {
   connection.connect();
@@ -36,11 +41,10 @@ PotjeRepository.prototype.createPotje = function(potje_data, members, callback) 
     }
 
     connection.query('INSERT INTO `potje_has_accounts` (potje_id, account_id) VALUES ?', [inserts], function(errors,r2,nogiets){
-      console.log(error);
       connection.end();
-      callback(r);
+      callback(r2);
     });
-  })
+  });
 };
 
 module.exports = new PotjeRepository();
