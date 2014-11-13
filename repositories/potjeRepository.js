@@ -9,8 +9,11 @@ PotjeRepository.prototype.getPotje = function(potjeId, callback) {
   connection.query('SELECT * FROM potjes WHERE id = ?', [potjeId], function(error, potje){
     potje = potje[0];
     connection.query('SELECT * FROM potje_has_accounts as k, accounts as a WHERE potje_id = ? AND k.account_id = a.id', [potjeId], function(error, members){
-      potje.members = members;
-      callback(potje);
+      connection.query('SELECT * FROM transacties WHERE potje_id = ?', [potjeId], function(error, tx){
+        potje.members = members;
+        potje.transactions = tx;
+        callback(potje);
+      });
     });
   });
 };
