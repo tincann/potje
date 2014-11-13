@@ -1,6 +1,62 @@
 extends layout
 block content
 	div.container
-		h1.page-header Dashboard 
+		div.col-md-12
+			br
+			a.btn.btn-default(href="../../dashboard/") &larr; Terug naar overzicht
 
-		p Hier lijst van transacties en lijst van members
+		div.col-md-9
+			div.col-md-12
+				h1.page-header 
+					small Potje 
+					=potje.name
+				p Opgericht op 
+					strong 00-00-0000 00:00 
+					| door 
+					strong Dirk Thierens 
+					br
+			div.col-md-4
+				h3 Rekeninghouders
+				table.table.table-bordered
+					thead
+						tr
+							th Naam
+							th IBAN
+					tbody
+						each member in potje.members
+							tr
+								td
+									//a(href="/dashboard/view/"+member.id)
+									= member.name
+								//- td 
+								td= member.iban
+
+
+			div.col-md-8
+				h3 Transacties
+				table.table.table-bordered
+					thead
+						tr
+							th Datum
+							th Eigenaar
+							th Bedrag
+					tbody
+						each transactie in potje.transactions
+							tr
+								td 00-00-0000 00:00
+								td= transactie.eigenaar_id
+								td= transactie.bedrag
+		div.col-md-3
+			h3 Rekening beheer
+			p Als moderator heb je de volgende opties:
+			hr
+			p Verander instellingen over de rekening
+			a.btn.btn-primary.disabled Bewerken
+			hr
+			p Zet het bedrag op &euro; 0,- en keer het overgebleven geld uit aan de rekeninghouders
+			a.btn.btn-warning.disabled Afrekenen
+			hr
+			p Zet het bedrag op &euro; 0,-, keer het overgebleven geld uit aan de rekeninghouders en hef de rekening op. Let op: dit kan niet ongedaan worden gemaakt.
+			a.btn.btn-danger.disabled Opheffen
+//		p Hier lijst van transacties en lijst van members
+
