@@ -3,5 +3,5 @@ block content
 	div.container
 		h1.page-header Dashboard
 			ul
-				for(var i=0; i<2; i++)
-					li i
+				each potje in potjes
+					li= potje.name + ' - ' + potje.amount

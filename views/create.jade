@@ -1,51 +1,51 @@
 extends layout
 block content
-	div(class="container",ng-controller="PotjeController")
+    div(class="container",ng-controller="PotjeController")
 
-		h1 Potje Aanmaken
-		p Maak een nieuwe rekening aan in 3 simpele stappen
-		
-		div.col-md-6
-			h3 1. Basisgegevens
-			div.form-group
-				label(for="naamVanPotje") Naam van Potje 
-				input(type="text",name="naamVanPotje",class="form-control", ng-model="naamVanPotje",required="required") 
-				
-			h3 2. Kies rekeninghouders
-			p Nodig je vrienden uit (vul hun IBAN rekeningnummers). Deze mensen krijgen een notificatie-emailtje en kunnen dan de uitnodiging accepteren. 
-			strong Je kan minimaal 2 en maximaal 10 rekeninghouders op een potje hebben
-			hr
-			form(ng-submit="addPerson()")
-				div.row
-					div.col-md-10
-						input(type="text",id="addPersonField",ng-model="nameText",size="30",placeholder="Voeg meer rekeninghouders toe",class="form-control autocomplete",value="")
-					div.col-md-2
-						input(class="form-control",id="addPersonButton",type="submit",value="add")
-			br
-			p Toekomstige rekeninghouders
-			ul
-				li 
-					| Dirk Thierens &larr; jij
-			ul#rekeninghouderLijst
-				li(ng-repeat="person in People")
-					{{person.text}}
-					input(type="hidden", name="accountHolders[]", value="{{person.text}}" data-userId="{{person.id}}")
+        h1 Potje Aanmaken
+        p Maak een nieuwe rekening aan in 3 simpele stappen
+        
+        div.col-md-6
+            h3 1. Basisgegevens
+            div.form-group
+                label(for="naamVanPotje") Naam van Potje 
+                input(type="text",name="naamVanPotje",class="form-control", ng-model="naamVanPotje",required="required") 
+                
+            h3 2. Kies rekeninghouders
+            p Nodig je vrienden uit (vul hun IBAN rekeningnummers). Deze mensen krijgen een notificatie-emailtje en kunnen dan de uitnodiging accepteren. 
+            strong Je kan minimaal 2 en maximaal 10 rekeninghouders op een potje hebben
+            hr
+            form(ng-submit="addPerson()")
+                div.row
+                    div.col-md-10
+                        input(type="text",id="addPersonField",ng-model="nameText",size="30",placeholder="Voeg meer rekeninghouders toe",class="form-control autocomplete",value="")
+                    div.col-md-2
+                        input(class="form-control",id="addPersonButton",type="submit",value="add")
+            br
+            p Toekomstige rekeninghouders
+            ul
+                li 
+                    | Dirk Thierens &larr; jij
+            ul#rekeninghouderLijst
+                li(ng-repeat="person in People")
+                    {{person.text}}
+                    input(type="hidden", name="accountHolders[]", value="{{person.text}}" data-userId="{{person.id}}")
 
-			hr
-			h3 3. Kies inlegbedrag
-			p Lijst van toegevoegde mensen en inputfield om nieuwe persoon toe te voegen			
-			
-			div.form-group
-				label(for="inlegBedrag") Eerste inlegbedrag bepalen (in Euro’s)
-				input(type="number", name="inlegBedrag",  ng-model="inlegBedrag", min="0", max="1000",class="form-control",required="required")
+            hr
+            h3 3. Kies inlegbedrag
+            p Lijst van toegevoegde mensen en inputfield om nieuwe persoon toe te voegen            
+            
+            div.form-group
+                label(for="inlegBedrag") Eerste inlegbedrag bepalen (in Euro’s)
+                input(type="number", name="inlegBedrag",  ng-model="inlegBedrag", min="0", max="1000",class="form-control",required="required")
 
 
-			form(class="form",id="formCreatePotje",action="/create/potje",method="post")
-			
-				input(type="hidden", name="inlegBedrag", id="inlegBedrag", value="{{inlegBedrag}}")
-				input(type="hidden", name="naamVanPotje", id="naamVanPotje", value="{{naamVanPotje}}")
+            form(class="form",id="formCreatePotje",action="/create/potje",method="post")
+            
+                input(type="hidden", name="inlegBedrag", id="inlegBedrag", value="{{inlegBedrag}}")
+                input(type="hidden", name="naamVanPotje", id="naamVanPotje", value="{{naamVanPotje}}")
 
-				
-				//a(id="createNewPotjeButton",href="#",class="btn btn-success btn-lg") Aanmaken..
-				
-				input(type="submit",class="btn btn-success btn-lg submitNewPotjeButton", value="Aanmaken (oud)")
+                
+                //a(id="createNewPotjeButton",href="#",class="btn btn-success btn-lg") Aanmaken..
+                
+                input(type="submit",class="btn btn-success btn-lg submitNewPotjeButton", value="Aanmaken (oud)")

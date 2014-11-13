@@ -9,10 +9,10 @@ UserRepository.prototype.getUser = function(userId, callback) {
 
   connection.query('SELECT * FROM potje_has_accounts WHERE account_id = ?',[userId],function(err,result,fields) {
     console.log(err);
-  	connection.end();
     callback(result);              
   });
 
+	connection.end();
 };
 
 module.exports = new UserRepository();

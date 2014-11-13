@@ -21,7 +21,6 @@ router.get('/', function(req, res) {
 
 router.get('/get_users',function(req,res){
 	accountRepository.getAllAccounts(function(data){
-
 		res.write(JSON.stringify(data));
 		res.end();
 	});
@@ -29,9 +28,11 @@ router.get('/get_users',function(req,res){
 
 router.post('/potje',function(req, res){
 	var x = req.body;
-
-	potjeRepository.createPotje({name : x.accountName, amount : x.initialAmount}, [], function() {
-		res.render('create');
+	potjeRepository.createPotje({name : x.accountName, amount : x.initialAmount}, [], function(errors, ding) {
+		if(errors){
+			console.log(errors);
+		}
+		res.redirect('/dashboard');
 	});
 });
 

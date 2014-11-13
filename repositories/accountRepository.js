@@ -7,22 +7,21 @@ function AccountRepository(){
 }
 
 AccountRepository.prototype.getAccount = function(iban, callback) {
-  connection.connect();
-
-  connection.query('SELECT * FROM accounts WHERE iban = ?',[iban],function(err,result,fields) {
-    console.log(err);
-  	connection.end();
-    callback(result);
-  });
+	connection.query('SELECT * FROM accounts WHERE iban = ?',[iban],function(err,result,fields) {
+		console.log(err);
+		callback(result);
+	});
 };
 
 AccountRepository.prototype.getAllAccounts = function(callback){
-	connection.connect();
-
 	connection.query("SELECT * FROM accounts",function(errors,res,fields){
-		connection.end();
+		if(errors){
+			console.log(errors);
+		}
+		console.log(res);
 		callback(res);
 	});
+	console.log('end');
 };
 
 module.exports = new AccountRepository();
