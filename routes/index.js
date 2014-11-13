@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var userRepository = require('../repositories/userRepository');
+//var userRepository = require('../repositories/userRepository');
 
 /* GET home page. */
 router.get('/', function(req, res) {
