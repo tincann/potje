@@ -11,8 +11,8 @@ AccountRepository.prototype.getAccount = function(iban, callback) {
 
   connection.query('SELECT * FROM accounts WHERE iban = ?',[iban],function(err,result,fields) {
     console.log(err);
-    callback(result);
   	connection.end();
+    callback(result);
   });
 };
 

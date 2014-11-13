@@ -20,17 +20,29 @@ router.get('/', function(req, res) {
 });
 
 router.get('/get_users',function(req,res){
-	accountRepository.getAllAccounts(function(data){
+	//accountRepository.getAllAccounts(function(data){
+
+		//console.log(data);
+
+		var data = [{
+			name:'Henk',
+			value:0
+		},
+		{
+			name:'Oka',
+			value:1
+		}];
+
 		res.write(JSON.stringify(data));
 		res.end();
-	});
+	//});
 })
 
 router.post('/potje',function(req, res){
 	var x = req.body;
 
 	potjeRepository.createPotje({name : x.accountName, amount : x.initialAmount}, x.accountHolders, function() {
-		res.redirect('create');
+		res.render('create');
 	});
 });
 

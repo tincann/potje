@@ -10,10 +10,9 @@ PotjeRepository.prototype.getPotjes = function(potje_id, callback) {
 
   connection.query('SELECT * FROM',function(err,result,fields) {
     console.log(err);
+    connection.end();
     callback(result);
   });
-
-  connection.end();
 };
 
 
@@ -37,8 +36,9 @@ PotjeRepository.prototype.createPotje = function(potje_data, members, callback) 
     }
 
     connection.query('INSERT INTO `potje_has_accounts` (potje_id, account_id) VALUES ?', [inserts], function(errors,r2,nogiets){
-      callback(r);
+      console.log(error);
       connection.end();
+      callback(r);
     });
   })
 };
